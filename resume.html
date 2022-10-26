@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+      <script src="{{url_for('static', filename='script.js')}}"></script>
+       <style>
+
+         ol {
+           margin: 0;
+           padding: 0;
+         }
+         table td,
+         table th {
+           padding: 0;
+         }
+         .c0 {
+           color: #ffffff;
+           font-weight: 700;
+           text-decoration: none;
+           vertical-align: baseline;
+           font-size: 16pt;
+           font-style: normal;
+         }
+         .c14 {
+           margin-left: 1.1pt;
+           padding-top: 1.9pt;
+           text-indent: 0.3pt;
+           padding-bottom: 0pt;
+           line-height: 1.2032221555709839;
+           text-align: left;
+           margin-right: 304.3pt;
+         }
+         .c18 {
+           color: #ffffff;
+           font-weight: 400;
+           text-decoration: none;
+           vertical-align: baseline;
+           font-size: 9pt;
+           font-style: normal;
+         }
+         .c27 {
+           font-weight: 400;
+           text-decoration: none;
+           vertical-align: baseline;
+           font-size: 17pt;
+           font-style: normal;
+         }
+         .c1 {
+           color: #F4F4F4;
+           font-weight: 400;
+           text-decoration: none;
+           vertical-align: baseline;
+           font-size: 10pt;
+           font-style: normal;
+         }
+         .c26 {
+           margin-left: 10pt;
+           padding-top: 7pt;
+           text-indent: 0pt;
+           padding-bottom: 0pt;
+           line-height: 1.2032221555709839;
+           text-align: left;
+           margin-right: 0pt;
+         }
+         .c9 {
+           color: #F4F4F4;
+           font-weight: 400;
+           text-decoration: none;
+           vertical-align: baseline;
+           font-size: 30pt;
+           font-style: normal;
+         }
+         .c6 {
+           color: #ffffff;
+           font-weight: 400;
+           text-decoration: none;
+           vertical-align: baseline;
+           font-size: 12pt;
+           font-style: normal;
+         }
+         .c4 {
+           margin-left: 10pt;
+           padding-top: 7pt;
+           text-indent: 0.3pt;
+           padding-bottom: 0pt;
+           line-height: 1.2032221555709839;
+           text-align: left;
+         }
+         5 {
+           margin-left: 10pt;
+           padding-top: 22.3pt;
+           padding-bottom: 0pt;
+           line-height: 1;
+           text-align: left;
+         }
+         .c13 {
+           margin-left: 10pt;
+           padding-top: 2.5pt;
+           padding-bottom: 0pt;
+           line-height: 1;
+           text-align: left;
+         }
+         .c5 {
+           margin-left: 10pt;
+           padding-top: 7pt;
+           padding-bottom: 0pt;
+           line-height: 1;
+           text-align: left;
+         }
+         .c25 {
+           margin-left: 10pt;
+           padding-top: 10.4pt;
+           padding-bottom: 0pt;
+           line-height: 1;
+           text-align: left;
+         }
+         .c28 {
+           margin-left: 10pt;
+           padding-top: 22.3pt;
+           padding-bottom: 0pt;
+           line-height: 1;
+           text-align: left;
+         }
+         .c8 {
+           margin-left: 10pt;
+           padding-top: 1.9pt;
+           padding-bottom: 0pt;
+           line-height: 1;
+           text-align: left;
+         }
+         .c2 {
+           margin-left: 10pt;
+           padding-top: 2.5pt;
+           padding-bottom: 0pt;
+           line-height: 1;
+           text-align: left;
+         }
+         .c11 {
+           margin-left: 10pt;
+           padding-top: 10.4pt;
+           padding-bottom: 0pt;
+           line-height: 1;
+           text-align: left;
+         }
+         .c24 {
+           margin-left: 20pt;
+           padding-top: 5.2pt;
+           padding-bottom: 0pt;
+           line-height: 1;
+           text-align: left;
+         }
+         .c7 {
+           margin-left: 30pt;
+           padding-top: 0pt;
+           padding-bottom: 0pt;
+           line-height: 1;
+           text-align: left;
+         }
+         .c17 {
+           margin-left: 10pt;
+           padding-top: 6.6pt;
+           padding-bottom: 0pt;
+           line-height: 1;
+           text-align: left;
+         }
+         .c29 {
+           margin-left: 10pt;
+           padding-top: 20.4pt;
+           padding-bottom: 0pt;
+           line-height: 1;
+           text-align: left;
+         }
+         .c12 {
+           margin-left: 10pt;
+           padding-top: 0pt;
+           padding-bottom: 0pt;
+           line-height: 1;
+           text-align: left;
+         }
+         .c16 {
+           margin-left: 10pt;
+           padding-top: 13pt;
+           padding-bottom: 0pt;
+           line-height: 1;
+           text-align: left;
+         }
+         .c3 {
+           margin-left: 10pt;
+           padding-top: 2.5pt;
+           padding-bottom: 0pt;
+           line-height: 1;
+           text-align: left;
+         }
+         .c22 {
+           margin-left: 10pt;
+           padding-top: 14.1pt;
+           padding-bottom: 0pt;
+           line-height: 1;
+           text-align: left;
+         }
+         .c10 {
+           margin-left: 10pt;
+           padding-top: 8.6pt;
+           padding-bottom: 0pt;
+           line-height: 1;
+           text-align: left;
+         }
+         .c21 {
+           margin-left: 10pt;
+           padding-top: 1.9pt;
+           padding-bottom: 0pt;
+           line-height: 1;
+           text-align: left;
+         }
+         .c19 {
+           padding-top: 2.5pt;
+           padding-bottom: 0pt;
+           line-height: 1;
+           text-align: left;
+         }
+         .c20 {
+           background-color: #ffffff;
+           max-width: 468.5pt;
+           padding: 70.7pt 72pt 105.7pt 71.5pt;
+         }
+         .c23 {
+           margin-left: 10pt;
+         }
+         .subtitle {
+           padding-top: 18pt;
+           color: #F4F4F4;
+           font-size: 24pt;
+           padding-bottom: 4pt;
+           font-family: "Georgia";
+           line-height: 1.15;
+           page-break-after: avoid;
+           font-style: italic;
+           orphans: 2;
+           widows: 2;
+           text-align: left;
+         }
+         li {
+           color: #ffffff;
+           font-size: 11pt;
+         }
+         p {
+           margin: 0;
+           color: #ffffff;
+           font-size: 11pt;
+         }
+         h1 {
+           padding-top: 24pt;
+           color: #ffffff;
+           font-weight: 700;
+           font-size: 24pt;
+           padding-bottom: 6pt;
+           line-height: 1.15;
+           page-break-after: avoid;
+           orphans: 2;
+           widows: 2;
+           text-align: left;
+         }
+         h2 {
+           padding-top: 18pt;
+           color: #ffffff;
+           font-weight: 700;
+           font-size: 18pt;
+           padding-bottom: 4pt;
+           line-height: 1.15;
+           page-break-after: avoid;
+           orphans: 2;
+           widows: 2;
+           text-align: left;
+         }
+         h3 {
+           padding-top: 14pt;
+           color: #ffffff;
+           font-weight: 700;
+           font-size: 14pt;
+           padding-bottom: 4pt;
+           line-height: 1.15;
+           page-break-after: avoid;
+           orphans: 2;
+           widows: 2;
+           text-align: left;
+         }
+         h4 {
+           padding-top: 12pt;
+           color: #ffffff;
+           font-weight: 700;
+           font-size: 12pt;
+           padding-bottom: 2pt;
+           line-height: 1.15;
+           page-break-after: avoid;
+           orphans: 2;
+           widows: 2;
+           text-align: left;
+         }
+         h5 {
+           padding-top: 11pt;
+           color: #ffffff;
+           font-weight: 700;
+           font-size: 11pt;
+           padding-bottom: 2pt;
+           line-height: 1.15;
+           page-break-after: avoid;
+           orphans: 2;
+           widows: 2;
+           text-align: left;
+         }
+         h6 {
+           padding-top: 10pt;
+           color: #ffffff;
+           font-weight: 700;
+           font-size: 10pt;
+           padding-bottom: 2pt;
+           line-height: 1.15;
+           page-break-after: avoid;
+           orphans: 2;
+           widows: 2;
+           text-align: left;
+         }
+
+      </style>
+
+      <title>
+         Resume
+      </title>
+
+
+   </head>
+   <body>
+      <!-- Navbar here -->
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Sam's Website</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+    <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+       <li class="{{ 'active' if item.is_active else '' }}">
+        <a class="nav-link" href="index.html">Home </a>
+       </li>
+       <ul class="navbar-nav mr-auto">
+        <li class="{{ 'active' if item.is_active else '' }}">
+         <a class="nav-link" href="resume.html">Resume </a>
+         </li>
+         <ul class="navbar-nav mr-auto">
+          <li class="{{ 'active' if item.is_active else '' }}">
+           <a class="nav-link" href="contactNumbers.html">Contact </a>
+          </li>
+          <ul class="navbar-nav mr-auto">
+           <li class="{{ 'active' if item.is_active else '' }}">
+            <a class="nav-link" href="projects.html">Projects </a>
+           </li>
+      </ul>
+    </div>
+    </nav>
+
+      <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+      <p class="c28"><span class="c9">Work Experience </span></p>
+      <p class="c22"><span class="c0">Lead Tech Supervisor </span></p>
+      <p class="c21">
+        <span class="c1">Central Schwenkfelder Church </span
+        ><span class="c6">- </span><span class="c1">Lansdale, PA </span>
+      </p>
+      <p class="c2"><span class="c1">February 2022 to Present </span></p>
+      <p class="c5">
+        <span class="c6"
+          >Supervising and managing roles of volunteer tech crew, ensuring that technology runs
+          smoothly in the church through both a contemporary worship service and a traditional worship service.
+          Worked using DMX lighting, ProPresenter, OBS studio, and a 32-Channel soundboard.
+        </span>
+      </p>
+      <p class="c11"><span class="c0">Front of House Team Member </span></p>
+      <p class="c8">
+        <span class="c1">Foot Locker </span><span class="c6">- </span
+        ><span class="c1">King of Prussia, PA </span>
+      </p>
+      <p class="c2"><span class="c1">November 2021 to February 2022 </span></p>
+      <p class="c26">
+        <span class="c6"
+          >Provided customer support by working with a team to meet the needs and expectations of
+          customers, and searching for shoes in a stockroom
+        </span>
+      </p>
+      <p class="c10"><span class="c0">Back of House Team Member </span></p>
+      <p class="c21">
+        <span class="c1">Chick-fil-A </span><span class="c6">- </span
+        ><span class="c1">North Wales, PA </span>
+      </p>
+      <p class="c2"><span class="c1">November 2020 to January 2021, May 2021 to August 2021 </span></p>
+      <p class="c4">
+        <span class="c6"
+          >Prepared chicken to serve to customers, operated friers and other
+          kitchen equipment, washed dishes and cleaned the kitchen. Also showed new team members how to use the kitchen equipment
+        </span>
+      </p>
+      <p class="c10"><span class="c0">Assistant Technician </span></p>
+      <p class="c8">
+        <span class="c1">European School Of Bergen </span
+        ><span class="c6">- </span><span class="c1">Bergen </span>
+      </p>
+      <p class="c2"><span class="c1">June 2019 to June 2019 </span></p>
+      <p class="c5">
+        <span class="c6"
+          >Shadowed a technician for two weeks while making a promotional video. Helped troubleshoot various client's problems as well learning how IT systems in education work
+        </span>
+      </p>
+      <p class="c29"><span class="c9">Education </span></p>
+      <p class="c22">
+        <span class="c0"
+          >Bachelor&#39;s degree in Computer Science, Data Science
+        </span>
+      </p>
+      <p class="c8"><span class="c6">Eastern University - Wayne, PA </span></p>
+      <p class="c19 c23"><span class="c1">August 2020 to Present </span></p>
+      <p class="c16"><span class="c6">&bull; GPA in Computer Science B.S. : 3.9</span></p>
+      <p class="c16"><span class="c6">&bull; Student Chaplain for 2022-2023 year</span></p>
+      <p class="c16"><span class="c6">&bull; Member of Sigma Zeta - Honors Society of Computer Science</span></p>
+      <p class="c16"><span class="c6">&bull; Dean's list during Fall of 2020, Spring of 2021, Fall of 2021 and Spring of 2022 semesters</span></p>
+      <p class="c25"><span class="c0">High school </span></p>
+      <p class="c8">
+        <span class="c6">Dock Mennonite Academy - Lansdale, PA </span>
+      </p>
+      <p class="c13"><span class="c1">September 2018 to May 2020</span></p>
+      <p class="c8"> <span class="c6">European School of Bergen - Bergen </span></p>
+      <p class="c13"><span class="c1">September 2016 to June 2018 </span></p>
+      <p class="c29"><span class="c9">Skills </span></p>
+      <p class="c24"><span class="c6">&bull; C++ </span></p>
+      <p class="c24"><span class="c6">&bull; Python </span></p>
+      <p class="c24"><span class="c6">&bull; SQL</span></p>
+      <p class="c24"><span class="c6">&bull; R</span></p>
+      <p class="c24"><span class="c6">&bull; Adobe Premiere</span></p>
+      <p class="c24"><span class="c6">&bull; Adobe After Effects</span></p>
+      <p class="c24"><span class="c6">&bull; Adobe Photoshop</span></p>
+
+      <p class="c29"><span class="c9">Relevant Courses</span></p>
+      <p class="c24"><span class="c6">&bull; Stats For Data Analysis</span></p>
+      <p class="c24"><span class="c6">&bull; Discrete Mathematics</span></p>
+      <p class="c24"><span class="c6">&bull; Networking </span></p>
+      <p class="c24"><span class="c6">&bull; Data Structure </span></p>
+      <p class="c24"><span class="c6">&bull; Databases </span></p>
+      <p class="c24"><span class="c6">&bull; Statistics Using R </span></p>
+      <p class="c24"><span class="c6">&bull; Software Engineering </span></p>
+
+      <p class="c29"><span class="c9">Certifications</span></p>
+      <p class="c24"><span class="c6">&bull; <a href = "https://www.freecodecamp.org/certification/ianwilliams/javascript-algorithms-and-data-structures"> FreeCodeCamp Javascript Algorithms and Data Structures</span></p>
+   </body>
+   <style>
+      body {
+      background-color: #212121;
+      color: white
+      }
+   </style>
+</html>

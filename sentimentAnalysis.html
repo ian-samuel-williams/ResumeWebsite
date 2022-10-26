@@ -1,0 +1,965 @@
+<!doctype html>
+<html lang="en">
+   <head>
+     <title>Sentiment Analysis On Song Lyrics</title>
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+   </head>
+   <body>
+      <!-- Navbar here -->
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Sam's Website</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+    <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+       <li class="{{ 'active' if item.is_active else '' }}">
+        <a class="nav-link" href="index.html">Home </a>
+       </li>
+       <ul class="navbar-nav mr-auto">
+        <li class="{{ 'active' if item.is_active else '' }}">
+         <a class="nav-link" href="resume.html">Resume </a>
+         </li>
+         <ul class="navbar-nav mr-auto">
+          <li class="{{ 'active' if item.is_active else '' }}">
+           <a class="nav-link" href="contactNumbers.html">Contact </a>
+          </li>
+          <ul class="navbar-nav mr-auto">
+           <li class="{{ 'active' if item.is_active else '' }}">
+            <a class="nav-link" href="projects.html">Projects </a>
+           </li>
+      </ul>
+    </div>
+    </nav>
+
+      <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+
+
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+      <style type="text/css">
+    body {
+      background-color: #212121;
+      color: white
+      }
+          ol {
+        margin: 0;
+        padding: 0;
+      }
+      table td,
+      table th {
+        padding: 0;
+      }
+      .c4 {
+        background-color: #000000;
+        color: #505050;
+        font-weight: 400;
+        text-decoration: none;
+        vertical-align: baseline;
+        font-size: 12pt;
+        font-family: "Arial";
+        font-style: normal;
+      }
+      .c0 {
+        color: #000000;
+        font-weight: 400;
+        text-decoration: none;
+        vertical-align: baseline;
+        font-size: 12pt;
+        font-family: "Times New Roman";
+        font-style: normal;
+      }
+      .c1 {
+        padding-top: 0pt;
+        text-indent: 36pt;
+        padding-bottom: 0pt;
+        line-height: 2;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+      .c6 {
+        margin-left: 30pt;
+        padding-top: 0pt;
+        text-indent: -30pt;
+        padding-bottom: 0pt;
+        line-height: 2;
+        text-align: left;
+      }
+      .c14 {
+        padding-top: 0pt;
+        padding-bottom: 0pt;
+        line-height: 1.15;
+        orphans: 2;
+        widows: 2;
+        text-align: center;
+      }
+      .c7 {
+        padding-top: 0pt;
+        padding-bottom: 0pt;
+        line-height: 2;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+      .c10 {
+        background-color: #000000;
+        font-size: 12pt;
+        font-style: normal;
+        color: #505050;
+        font-weight: 400;
+      }
+      .c5 {
+        padding-top: 0pt;
+        padding-bottom: 0pt;
+        line-height: 2;
+        text-align: left;
+        height: 11pt;
+      }
+      .c2 {
+        background-color: #000000;
+        font-size: 12pt;
+        font-style: italic;
+        color: #505050;
+        font-weight: 400;
+      }
+      .c8 {
+        background-color: #000000;
+        font-size: 12pt;
+        font-family: "Times New Roman";
+        font-weight: 400;
+      }
+      .c13 {
+        padding-top: 0pt;
+        padding-bottom: 0pt;
+        line-height: 2;
+        text-align: left;
+      }
+      .c15 {
+        font-size: 12pt;
+        font-family: "Times New Roman";
+        font-weight: 400;
+      }
+      .c3 {
+        background-color: #ffffff;
+        max-width: 468pt;
+        padding: 72pt 72pt 72pt 72pt;
+      }
+      .c9 {
+        margin-left: 144pt;
+        text-indent: 36pt;
+      }
+      .c11 {
+        background-color: #000000;
+      }
+      .c12 {
+        height: 11pt;
+      }
+      .title {
+        padding-top: 0pt;
+        color: #ffffff;
+        font-size: 26pt;
+        padding-bottom: 3pt;
+        font-family: "Arial";
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+      .subtitle {
+          padding-top: 0pt;
+          color: #666666;
+          font-size: 15pt;
+          padding-bottom: 16pt;
+          font-family: "Arial";
+          line-height: 1.15;
+          page-break-after: avoid;
+          orphans: 2;
+          widows: 2;
+          text-align: left;
+      }
+      li {
+        color: #ffffff;
+        font-size: 11pt;
+        font-family: "Arial";
+      }
+      p {
+        margin-right: 250px;
+        margin-left: 250px;
+        color: #ffffff;
+        font-size: 11pt;
+        text-align: center;
+      }
+      h1 {
+        padding-top: 20pt;
+        color: #ffffff;
+        font-size: 20pt;
+        padding-bottom: 6pt;
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: center;
+      }
+      h2 {
+        padding-top: 18pt;
+        color: #ffffff;
+        font-size: 16pt;
+        padding-bottom: 6pt;
+        font-family: "Arial";
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: center;
+      }
+      h3 {
+        padding-top: 16pt;
+        color: #434343;
+        font-size: 14pt;
+        padding-bottom: 4pt;
+        font-family: "Arial";
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+      h4 {
+        padding-top: 14pt;
+        color: #ffffff;
+        font-size: 12pt;
+        padding-bottom: 4pt;
+        font-family: "Arial";
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+      h5 {
+        padding-top: 12pt;
+        color: #ffffff;
+        font-size: 11pt;
+        padding-bottom: 4pt;
+        font-family: "Arial";
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+      h6 {
+        padding-top: 12pt;
+        color: #ffffff;
+        font-size: 11pt;
+        padding-bottom: 4pt;
+        font-family: "Arial";
+        line-height: 1.15;
+        page-break-after: avoid;
+        font-style: italic;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+    </style>
+
+
+    <h1>Sentiment Analysis On Song Titles</h1>
+
+    <div>
+      <p></span></p>
+    </div>
+    <p><span></span></p>
+    <p>
+      <span
+        >Music is an extremely important and prevalent part of one&rsquo;s life.
+        According to the Nielsen Music 360 Report, in 2019, the average United
+        States consumer spent 26.9 hours listening to music per week
+        (Department). This translates to over 3.8 hours of music listened to per
+        day by the average consumer. This is a large amount of space every day
+        dedicated to a hobby which, excluding instrumental genres such as
+        classical music and EDM, essentially involves someone speaking to us.
+        The words this person says varies; some people prefer to listen to
+        positive music with uplifting lyrics, some prefer catchy songs with
+        meaningless lyrics, some prefer songs with more depressing tones and
+        sadder lyrics. Regardless of what message one prefers, the lyrics still
+        are being heard and absorbed into the brain, and one might be interested
+        in figuring out how positive or negative these lyrics are.
+      </span>
+    </p>
+    <p>
+      <span
+        >The classic saying &ldquo;you are what you eat&rdquo; essentially means
+        that your personal health can be quite easily controlled, to an extent,
+        by what foods you decide to eat. It&rsquo;s often told to kids who are
+        quick to exchange healthier foods for foods higher in sugar content and
+        fat in their diet. I believe however that another similar expression can
+        be made: you are what you listen to. Because we take in these lyrics
+        that we listen to, one could argue that it would be good to take an
+        evaluation of the emotions portrayed and expressed in the songs one
+        spends large amounts of time listening to.</span
+      >
+    </p>
+    <p>
+      <span
+        >I decided to take a deeper look into the music I listen to, with the
+        goal of viewing how positive or negative the emotions expressed in my
+        most-listened to songs are. Music has had a large influence in my life,
+        with my parents even warning me at an earlier age that negative music
+        would lead me down a darker path. I decided to attempt to figure out
+        exactly how negative the music I listened to was, from a completely
+        unbiased perspective. Studying this is important for several reasons.
+      </span>
+    </p>
+    <p>
+      <span
+        >For one, music has taken a darker tone recently. The emotions of
+        &ldquo;anger, disgust, fear, sadness, and conscientiousness have
+        increased significantly, while joy, confidence, and openness expressed
+        in pop song lyrics have declined&rdquo; (Napier). I would consider
+        myself to be a fairly average music-listener, and thus it would be
+        interesting to see whether the music I listen to really reflects that
+        cultural shift; whether there is truly more negative than
+        positive.</span
+      >
+    </p>
+    <p>
+      <span
+        >Another reason this study is important is because the emotions that
+        music expresses is a very &ldquo;basic feature of Western music&rdquo;
+        (Fritz). In order to truly understand the music one listens to, one has
+        to understand the basic components of it, and emotion just happens to be
+        one of those components. Perhaps through this study I could find a
+        greater understanding and appreciation of the music that I already
+        listen to. Or perhaps I could gain new insight provided on how the
+        language used leans more positively or negatively.</span
+      >
+    </p>
+    <p>
+      <span
+        >The final and most important reason why I would like to dive deeper
+        into the emotions portrayed in my music is backed by scientific
+        research. Music can be viewed as an art form; a form of expressing
+        emotions, but music can also be viewed as a tool for managing emotions.
+        Music has been found to regulate emotions among adolescents, both males
+        and females (Alan Wells). There is a potential problem with this,
+        however.</span
+      >
+    </p>
+    <p>
+      <span
+        >If an individual is finding that only negative music will give them any
+        sort of joy, this can cause them to rely heavily on songs with lyrics
+        that may put them in a worse mental position. It has been discovered
+        that activation of any nodes in the brain, apart from those in the
+        displeasure center, will cause the individual to sense pleasure
+        (Schubert). Listeners experiencing a difficult season in life might
+        become attracted to darker and more negative music, and since they can
+        still sense pleasure from it, they might eventually replace all of their
+        music with more negative tracks. This is a problem not only because this
+        means there are less positive influences in the individual&#39;s life,
+        but also because negative music has been shown to possibly worsen
+        one&rsquo;s mood (Stewart). This could perhaps create a downward spiral,
+        where the individual&rsquo;s mood worsens because of life and it&rsquo;s
+        challenges, and then the individual turns to negative music for a sense
+        of comfort. This negative music, however, points the individual in a
+        darker direction and then worsens the individual&#39;s mood, resulting
+        in them relying on this music, which in turn worsens their mood further.
+        If I find out that there&rsquo;s more negativity expressed than
+        positivity in the songs I listen to, perhaps it&rsquo;s time to make a
+        change. Possibly introducing new, positive music would help.</span
+      >
+    </p>
+    <p>
+      <span
+        >This project is one that would not per say reveal important information
+        to others, and wouldn&rsquo;t necessarily show others how to live their
+        lives. This is one that is reflective for me, that shows me how my music
+        listening habits might have to change. The main tool I&rsquo;m using for
+        this project, VADER sentiment analysis, views things purely from an
+        objective perspective. Instead of interpreting sentences in their full
+        context, which would be a more human way of sentiment analysis, the tool
+        analyzes the individual words in a sentence, determining whether the
+        words lean in a more positive or negative direction. Therefore this is a
+        process that is purely objective, and reveals a very different side of
+        sentiment analysis that could not be done easily or quickly without the
+        use of programming.
+      </span>
+    </p>
+    <p>
+      <span
+        >If one were to perform sentiment analysis on these songs manually, one
+        might skip over and fail to understand the meaning of negativity. While
+        a phrase such as &ldquo;I&rsquo;m killing it&rdquo; might sound positive
+        to us as humans, the software would interpret this as negative, as this
+        uses the word &ldquo;kill&rdquo;. Because of this individual word-based
+        approach, we get deeper insight into the pure negativity and positivity,
+        regardless of context or overall meaning. This is advantageous, as it
+        might be possible that negative words in a positive sentence could still
+        affect us negatively.</span
+      >
+    </p>
+    <p>
+      <span
+        >Of course this could also be a disadvantage to the strength of these
+        results as context is very important. The reflection of negativity in
+        this study is accurate based on how the listener listens to a song. If
+        the listener listens passively, hearing the words but not understanding
+        the meaning, the measures of negativity and positivity applies. If the
+        listener actively listens and tries to understand the meaning, the
+        measures of positivity and negativity do not apply as much. That being
+        said, whatever style the listener would listen in, the measures still
+        apply to an extent.</span
+      >
+    </p>
+    <p>
+      <span
+        >For this project I decided to take data from Apple and their privacy
+        section from Apple&rsquo;s website. I chose this data source not only
+        because it was extensive, but also because Apple has a habit of setting
+        the industry standards for accuracy and consistency. As the data I
+        wanted to collect would be statistics on my Apple Music account, the
+        most reliable source would logically be the provider of the service
+        themselves, Apple. The other main reason I decided to collect this data
+        from Apple was because they are the exclusive provider of said data,
+        thanks to their extremely rigid policies on user privacy.
+      </span>
+    </p>
+    <p>
+      <span
+        >This data was collected from the 16th of August 2020, the date I
+        subscribed to Apple Music, to the 4th of February 2021, the date I
+        requested my data from Apple. The data is extremely extensive, covering
+        not only the exact time the song was started and ended, but also the
+        reason the song was ended, where the song was played from, the track
+        name and artist, and many others which altogether totalled 30 different
+        variables. The most important variable for this study that was recorded
+        is the play duration of the song in milliseconds, which displayed how
+        long the song was played for. There were no missing cases, which is
+        impressive for a dataset with over </span
+      ><span
+        >35621 different observations. The data was generated as I selected
+        songs to be played, which allowed the data to be highly accurate.
+      </span>
+    </p>
+    <p>
+      <span
+        >The first step to conducting analyses on this dataset was to look
+        through the data. Understanding which variables needed to be focused on
+        and manipulated was confusing, as there are two very similar variables:
+        play duration in milliseconds, and media duration in milliseconds. The
+        former is a measure of how long I played the content for during that
+        instance of playing the song, and the latter is how long the song
+        actually is. &nbsp;</span
+      >
+    </p>
+    <p>
+      <span
+        >I imported pandas, matplotlib, and matplotlib pyplot for the data. I
+        also had to install VADER sentiment analyzer through pip, and then
+        imported the sentiment intensity analyzer through VADER sentiment
+        analyzer.
+      </span>
+    </p>
+    <p>
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 420.04px;
+          height: 135.27px;
+        "
+        ><img
+          alt=""
+          src="static/SAimage7.png"
+          style="
+            width: 420.04px;
+            height: 135.27px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+    <p>
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 424.5px;
+          height: 40.76px;
+        "
+        ><img
+          alt=""
+          src="static/SAimage8.png"
+          style="
+            width: 424.5px;
+            height: 40.76px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title="" /></span
+      ><span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 624px;
+          height: 32px;
+        "
+        ><img
+          alt=""
+          src="static/SAimage2.png"
+          style="
+            width: 624px;
+            height: 32px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+    <p>
+      <span
+        >The first thing I had to do in order to perform sentiment analysis on
+        the data was use .groupby for the variable &ldquo;content name&rdquo;. I
+        would then sum the play duration in milliseconds, in order to collect
+        the total millisecond duration of the time that each song was played. I
+        then sorted this data by descending values, which ranked all of the
+        songs I have played on my Apple Music account by how long I&rsquo;ve
+        played them for. This allowed me to gather my top 5 most played songs
+        and perform sentiment analysis on them.
+      </span>
+    </p>
+    <p>
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 624px;
+          height: 85.33px;
+        "
+        ><img
+          alt=""
+          src="static/SAimage4.png"
+          style="
+            width: 624px;
+            height: 85.33px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+    <p>
+      <span
+        >I then found the lyrics for each song through Musixmatch, and wrote
+        them as a list, separating each line with a comma meaning that each line
+        would be analyzed individually through VADER sentiment analysis. I
+        created a dataframe to put data in for what percentage of the songs was
+        positive, negative, and neutral.</span
+      >
+    </p>
+    <p>
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 624px;
+          height: 32px;
+        "
+        ><img
+          alt=""
+          src="static/SAimage6.png"
+          style="
+            width: 624px;
+            height: 32px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+    <p>
+      <span
+        >I wrote a for loop which ran the sentiment intensity analyzer for every
+        line of each song. This would output three different values,
+        &ldquo;pos&rdquo;, &ldquo;neg&rdquo;, and &ldquo;compound&rdquo;. I
+        decided to go by the compound VADER sentiment intensity analyzer score
+        of each of the lines to determine what sort of emotion they expressed.
+        This compound score is a score between -1 and 1 which summarizes how
+        positive or negative the sentence analyzed is, the lower scores being
+        negative, the higher scores being positive, and the scores near zero
+        being neutral. I decided to use the same threshold as the github page
+        for the tool (</span
+      ><span>Cjhutto</span
+      ><span
+        >). This threshold dictated that sentences were determined to be
+        positive if the compound score was greater than or equal to 0.05,
+        negative if the compound score was lesser than or equal to -0.05, and
+        neutral otherwise. This also means that entire sentences were either
+        counted as neutral, negative, or positive, so even though certain
+        sentences could contain both positive and negative sentiments, whichever
+        was the greatest level of emotion was the one that the sentence was
+        labeled as.</span
+      >
+    </p>
+    <p>
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 624px;
+          height: 489.33px;
+        "
+        ><img
+          alt=""
+          src="static/SAimage3.png"
+          style="
+            width: 624px;
+            height: 489.33px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+    <p>
+      <span
+        >All of the scores were converted to percentages, and then entered into
+        the dataframe. This dataframe was then plotted as a matplotlib bar
+        graph, with each bar representing the makeup of the sentences of a song.
+        These bars almost functioned as a pie chart where each bar was 100 units
+        tall, each unit representing one percent. The bar chart was then divided
+        into three sections: one representing what percentage of the
+        song&rsquo;s lines were positive, one representing what percentage were
+        neutral, and one representing what percentage were negative. This
+        presented the data in an easy-to-understand manner.</span
+      >
+    </p>
+    <p>
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 453.5px;
+          height: 291.43px;
+        "
+        ><img
+          alt=""
+          src="static/SAimage5.png"
+          style="
+            width: 453.5px;
+            height: 291.43px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title="" /></span
+      ><span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 419.65px;
+          height: 440.5px;
+        "
+        ><img
+          alt=""
+          src="static/SAimage1.png"
+          style="
+            width: 419.65px;
+            height: 440.5px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+    <p>
+      <span
+        >The results for some songs were anticipated. I expected the songs by
+        the late Pop Smoke, an artist who was known for creating drill rap (a
+        type of rap which is focused on appearing intimidating and threatening),
+        to rank more negatively, and in fact Welcome to the Party was the most
+        negative out of the top five songs. Over 45 percent of the 59 lines
+        leaned negatively, which is not surprising given the highly explicit
+        language used and the general subject matter. Given that Pop Smoke was
+        part of a gang, hearing that he shoots &ldquo;one in the head&rdquo;
+        with &ldquo;ten in the clip&rdquo; is not something that is immediately
+        shocking to hear from him, but one can also get lost in his extremely
+        gruff voice which can sometimes distract from the extreme subject
+        matter. I wasn&rsquo;t even sure of what the lyrics were until they were
+        laid out in front of me, and once I saw them it was easy to see that
+        this song would be seen by the sentiment analysis tool as very
+        negative.</span
+      >
+    </p>
+    <p>
+      <span
+        >The other song by Pop Smoke which cracked my top 5 most played songs,
+        Hello, while not nearly as aggressive as Welcome to the Party, still
+        displayed themes of objectification and references murder on multiple
+        occasions. Once again, I suspected that this would have high negative
+        scores, which it did (as around 34% of the lines were negative).
+        &nbsp;The other results were more interesting and unexpected,
+        however.</span
+      >
+    </p>
+    <p>
+      <span
+        >The song with the highest percentage of positive lines was Soul Food II
+        by Logic. Given that Logic&rsquo;s motto is &ldquo;peace, love, and
+        positivity&rdquo;, this wasn&rsquo;t too much of a shock but the real
+        shock &nbsp;was that it was only really positive in comparison to the
+        other songs I studied. Compared to other songs outside of my top 5, or
+        in comparison to other music, this would be considered a fairly negative
+        song. For Logic being an artist that prides himself on his friendly and
+        fairly positive outlook on life, there was still a higher percentage of
+        negative lines than positive lines in Soul Food II, and while the
+        difference was only around 2 percent, this still strikes me as somewhat
+        strange. Granted, Soul Food II is not necessarily one of Logic&rsquo;s
+        most positive and encouraging songs, but it&rsquo;s also not one that I
+        would initially say is more negative than positive. The latter half of
+        the lyrics is entirely dedicated to storytelling, and the first half is
+        Logic dealing with his thoughts as he&rsquo;s realizing his success as a
+        rapper.
+      </span>
+    </p>
+    <p>
+      <span
+        >One would think that Soul Food II would score significantly higher
+        positive scores than Lemonade, a song entirely dedicated to prescription
+        cough syrup and bragging, but the scores are very similar for both. This
+        was somewhat strange as well, that a song which has far less
+        encouragement and inspirational lines had a very similar percentage of
+        positive lines to Logic&rsquo;s song.</span
+      >
+    </p>
+    <p>
+      <span
+        >Fast Lane is the outlier here, with more negative lines than positive,
+        but more than 53% of the lines were neutral. One of the two rappers in
+        Bad Meets Evil, the artists of the song, is Eminem who is notorious for
+        including negative connotations within his lyrics, but this is not the
+        most negative out of the five songs. Nor is it the most positive, this
+        is simply the song with the most neutral lines.</span
+      >
+    </p>
+    <p>
+      <span
+        >This reveals that I essentially couldn&rsquo;t accurately predict the
+        scores of three out of the five songs. This is interesting for several
+        reasons.</span
+      >
+    </p>
+    <p>
+      <span
+        >One of the reasons that I wasn&rsquo;t able to predict the emotions of
+        the music I listened to could be that my usage of the VADER Sentiment
+        Analysis tool has its flaws. The system for collecting scores on songs
+        was flawed, but also somewhat difficult to improve. This is because
+        instead of the songs being analyzed for how negative the lines are,
+        they&rsquo;re simply being analyzed as to whether the line is more on
+        the positive or negative side, given that I used the compound score.
+        This means that an extremely negative line will have the same impact as
+        a line that&rsquo;s slightly negative. So a line like &ldquo;even when
+        I&rsquo;m winning, feel like I&rsquo;m losing&rdquo; on Soul Food II
+        would be treated as equally negative as &ldquo;I catch a body, next day
+        I forget it&rdquo; from Welcome to the Party. Because of this, I
+        misjudged just how negatively a song like Soul Food II could be
+        interpreted.
+      </span>
+    </p>
+    <p>
+      <span
+        >Secondly, it shows that I as a listener don&rsquo;t truly comprehend
+        how positive or negative the music I listen to is. The purpose of this
+        study was to see what emotions were expressed in the songs I listen to
+        most. I wondered whether I would be able to accurately guess whether the
+        songs I listen to would be positive or negative, but unfortunately I
+        wasn&rsquo;t able to do that. I can&rsquo;t accurately predict from an
+        objective standpoint whether the music I listen to is positive or
+        negative. This truly shows an advantage that technology could have over
+        the individual.</span
+      >
+    </p>
+    <p>
+      <span
+        >This study mainly revealed to me that I can&rsquo;t make accurate
+        judgements on the emotions expressed in my music, and that the music I
+        listen to is significantly more negative than I would&rsquo;ve expected.
+        Rap music tends to get a bad reputation, but according to this study,
+        the bad reputation is somewhat deserved. &nbsp;It was interesting to see
+        what the emotions expressed were of the songs I studied, but it also led
+        me to the realization that it&rsquo;s something I might want to pay more
+        attention to. I might need to consider changing my listening habits to
+        an extent in order to protect myself from extreme negative
+        influences.</span
+      >
+    </p>
+    <p>
+      <span
+        >This study also revealed to me that computers can&rsquo;t solve and
+        interpret everything. We as humans have created such complex languages
+        that can&rsquo;t be nearly as accurately interpreted and understood.
+        There are flaws with the VADER sentiment analysis tool, and the way I
+        used it was not nearly perfect. Changing the way I used it, however,
+        would only solve half of the problem, and the root problem is the idea
+        of using a computer to interpret language, especially lyrics. Lyrics
+        aren&rsquo;t meant to be read, they&rsquo;re meant to be heard, and the
+        only way they can truly be interpreted and understood is through
+        listening to them the way the artist intended.
+      </span>
+    </p>
+    <p>
+      <span
+        >In conclusion, while I learned a lot from this study about the emotions
+        expressed in the music I listen to, I also learned more unexpected
+        things. I learned that the music I listen to is likely too negative, and
+        that I should put more effort into listening to more positive songs. I
+        also learned that the emotions expressed in the music I listen to
+        reflects the more negative shift of the culture as a whole. Finally, I
+        learned that emotions are difficult to be processed by a computer, which
+        poses several questions to those in the artificial intelligence field.
+        This study could never be made perfect, but it provided some insight
+        regardless, and is something I could continue to improve in the
+        future.</span
+      >
+    </p>
+    <p class="c5"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5"><span class="c4"></span></p>
+    <p class="c5"><span class="c4"></span></p>
+    <p class="c5"><span class="c4"></span></p>
+    <p class="c5"><span class="c4"></span></p>
+    <p class="c5"><span class="c4"></span></p>
+    <p class="c5"><span class="c4"></span></p>
+    <p class="c5"><span class="c4"></span></p>
+    <p class><span>Works Cited</span></p>
+    <p>
+      <span>&ldquo;APA PsycNet.&rdquo; </span
+      ><span>American Psychological Association</span
+      ><span
+        >, American Psychological Association,
+        psycnet.apa.org/record/2011-05681-001.</span
+      >
+    </p>
+    <p>
+      <span
+        >Alan Wells, Ernest A. Hakanen. &ldquo;The Emotional Use of Popular
+        Music by Adolescents - Alan Wells, Ernest A. Hakanen, 1991.&rdquo; </span
+      ><span>SAGE Journals</span
+      ><span
+        >, journals.sagepub.com/doi/10.1177/107769909106800315.</span
+      >
+    </p>
+    <p>
+      <span>Cjhutto. &ldquo;Cjhutto/VaderSentiment.&rdquo; </span
+      ><span>GitHub</span
+      ><span>, github.com/cjhutto/vaderSentiment.</span>
+    </p>
+    <p>
+      <span
+        >Department, Published by Statista Research, and Jan 8. &ldquo;Time
+        Spent with Music in the United States 2019.&rdquo; </span
+      ><span>Statista</span
+      ><span
+        >, 8 Jan. 2021,
+        www.statista.com/statistics/828195/time-spent-music/#:~:text=Data on the
+        amount of,even higher at 32.1 hours.</span
+      >
+    </p>
+    <p>
+      <span
+        >Fritz, Thomas, et al. &ldquo;Universal Recognition of Three Basic
+        Emotions in Music.&rdquo; </span
+      ><span>Current Biology</span
+      ><span
+        >, Cell Press, 19 Mar. 2009,
+        www.sciencedirect.com/science/article/pii/S0960982209008136.</span
+      >
+    </p>
+    <p>
+      <span
+        >Napier, Kathleen, and Lior Shamir. &ldquo;Quantitative Sentiment
+        Analysis of Lyrics in Popular Music.&rdquo; </span
+      ><span>University of California Press</span
+      ><span
+        >, University of California Press, 4 Dec. 2018,
+        doi.org/10.1525/jpms.2018.300411.</span
+      >
+    </p>
+    <p>
+      <span
+        >Schubert, Emery. &ldquo;Enjoyment of Negative Emotions in Music: An
+        Associative Network Explanation - Emery Schubert, 1996.&rdquo; </span
+      ><span>SAGE Journals</span
+      ><span
+        >, journals.sagepub.com/doi/10.1177/0305735696241003.</span
+      >
+    </p>

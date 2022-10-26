@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="en">
+   <head>
+     <title>Study on Drug Use Vs Crime Rate</title>
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+   </head>
+   <body>
+      <!-- Navbar here -->
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Sam's Website</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+    <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+       <li class="{{ 'active' if item.is_active else '' }}">
+        <a class="nav-link" href="index.html">Home </a>
+       </li>
+       <ul class="navbar-nav mr-auto">
+        <li class="{{ 'active' if item.is_active else '' }}">
+         <a class="nav-link" href="resume.html">Resume </a>
+         </li>
+         <ul class="navbar-nav mr-auto">
+          <li class="{{ 'active' if item.is_active else '' }}">
+           <a class="nav-link" href="contactNumbers.html">Contact </a>
+          </li>
+          <ul class="navbar-nav mr-auto">
+           <li class="{{ 'active' if item.is_active else '' }}">
+            <a class="nav-link" href="projects.html">Projects </a>
+           </li>
+      </ul>
+    </div>
+    </nav>
+
+      <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+
+      <h1>Study on Drug Use Vs Crime Rate</h1>
+
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+      <style type="text/css">
+    body {
+      background-color: #212121;
+      color: white
+      }
+          ol {
+        margin: 0;
+        padding: 0;
+      }
+      table td,
+      table th {
+        padding: 0;
+      }
+      .c4 {
+        background-color: #000000;
+        color: #505050;
+        font-weight: 400;
+        text-decoration: none;
+        vertical-align: baseline;
+        font-size: 12pt;
+        font-family: "Arial";
+        font-style: normal;
+      }
+      .c0 {
+        color: #000000;
+        font-weight: 400;
+        text-decoration: none;
+        vertical-align: baseline;
+        font-size: 12pt;
+        font-family: "Times New Roman";
+        font-style: normal;
+      }
+      .c1 {
+        padding-top: 0pt;
+        text-indent: 36pt;
+        padding-bottom: 0pt;
+        line-height: 2;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+      .c6 {
+        margin-left: 30pt;
+        padding-top: 0pt;
+        text-indent: -30pt;
+        padding-bottom: 0pt;
+        line-height: 2;
+        text-align: left;
+      }
+      .c14 {
+        padding-top: 0pt;
+        padding-bottom: 0pt;
+        line-height: 1.15;
+        orphans: 2;
+        widows: 2;
+        text-align: center;
+      }
+      .c7 {
+        padding-top: 0pt;
+        padding-bottom: 0pt;
+        line-height: 2;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+      .c10 {
+        background-color: #000000;
+        font-size: 12pt;
+        font-style: normal;
+        color: #505050;
+        font-weight: 400;
+      }
+      .c5 {
+        padding-top: 0pt;
+        padding-bottom: 0pt;
+        line-height: 2;
+        text-align: left;
+        height: 11pt;
+      }
+      .c2 {
+        background-color: #000000;
+        font-size: 12pt;
+        font-style: italic;
+        color: #505050;
+        font-weight: 400;
+      }
+      .c8 {
+        background-color: #000000;
+        font-size: 12pt;
+        font-family: "Times New Roman";
+        font-weight: 400;
+      }
+      .c13 {
+        padding-top: 0pt;
+        padding-bottom: 0pt;
+        line-height: 2;
+        text-align: left;
+      }
+      .c15 {
+        font-size: 12pt;
+        font-family: "Times New Roman";
+        font-weight: 400;
+      }
+      .c3 {
+        background-color: #ffffff;
+        max-width: 468pt;
+        padding: 72pt 72pt 72pt 72pt;
+      }
+      .c9 {
+        margin-left: 144pt;
+        text-indent: 36pt;
+      }
+      .c11 {
+        background-color: #000000;
+      }
+      .c12 {
+        height: 11pt;
+      }
+      .title {
+        padding-top: 0pt;
+        color: #ffffff;
+        font-size: 26pt;
+        padding-bottom: 3pt;
+        font-family: "Arial";
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+      .subtitle {
+          padding-top: 0pt;
+          color: #666666;
+          font-size: 15pt;
+          padding-bottom: 16pt;
+          font-family: "Arial";
+          line-height: 1.15;
+          page-break-after: avoid;
+          orphans: 2;
+          widows: 2;
+          text-align: left;
+      }
+      li {
+        color: #ffffff;
+        font-size: 11pt;
+        font-family: "Arial";
+      }
+      p {
+        margin-right: 250px;
+        margin-left: 250px;
+        color: #ffffff;
+        font-size: 11pt;
+        text-align: center;
+      }
+      h1 {
+        padding-top: 20pt;
+        color: #ffffff;
+        font-size: 20pt;
+        padding-bottom: 6pt;
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: center;
+      }
+      h2 {
+        padding-top: 18pt;
+        color: #ffffff;
+        font-size: 16pt;
+        padding-bottom: 6pt;
+        font-family: "Arial";
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: center;
+      }
+      h3 {
+        padding-top: 16pt;
+        color: #434343;
+        font-size: 14pt;
+        padding-bottom: 4pt;
+        font-family: "Arial";
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+      h4 {
+        padding-top: 14pt;
+        color: #ffffff;
+        font-size: 12pt;
+        padding-bottom: 4pt;
+        font-family: "Arial";
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+      h5 {
+        padding-top: 12pt;
+        color: #ffffff;
+        font-size: 11pt;
+        padding-bottom: 4pt;
+        font-family: "Arial";
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+      h6 {
+        padding-top: 12pt;
+        color: #ffffff;
+        font-size: 11pt;
+        padding-bottom: 4pt;
+        font-family: "Arial";
+        line-height: 1.15;
+        page-break-after: avoid;
+        font-style: italic;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+    </style>
+
+    <div>
+    </div>
+    <p><span></span></p>
+    <p>
+      <span
+        >The United States has a very complex history of dealing with illicit drugs.
+        One could trace its roots of uncertainty back to the trade of opium between
+        Great Britain and China in the 1800s (“A History”). The US in 1870 decided to
+        legislate laws specifically against Chinese immigrants for opium, and then later
+        for Mexican immigrants and Mexican Americans in the 1910s for marijuana. In 1971,
+        former President of the United States Richard Nixon decided to prioritize reducing
+        drug use by increasing penalties for illicit drug possession and increasing enforcement measures.
+        In recent years, the effectiveness of this decision has been called into question,
+        especially since opioid abuse was declared a public health emergency by the United
+        States Department of Health and Human Services in 2017 (Assistant). Illicit drug
+        use seems as though it will never stop (“Substance”), and some states have decided
+        to make other decisions for their drug laws.
+      </span>
+    </p>
+    <p>
+      <span
+        >Many of the US population were shocked when Oregon decriminalized possession of
+        all illicit drugs in the fall of 2020 (“Drug”). Possessing small quantities of
+        illegal drugs in Oregon leads to a small fine instead of probation, in the name
+        of recovery and treatment towards those addicted to drugs. Complaints arose across
+        the country against this seemingly illogical and irrational decision. One of the
+        concerns about this decriminalization against all drugs was the claim that drugs
+        cause people to be violent, and thus in this study I would like to compare data
+        across the states revolving around drug use and violence to see what drugs influence
+        crime most, where drug use is most prevalent, and explore whether decriminalizing
+        drugs was a good idea in Oregon.
+</span
+      >
+    </p>
+    <p>
+      <span
+        >The datasets I am deciding to explore and manipulate here are both from the CORGIs Dataset Project.
+        The first is the State Crime dataset, from the Unified Crime Reporting Statistics under the FBI.
+        This dataset has 21 variables and goes into detail about what crimes were reported, in each state.
+        The second dataset is the Drugs dataset, from the National Survey on Drug Use and Health.
+        This dataset has 53 variables and details usage of drugs between specific age groups.
+        As there is not enough data made on Oregon's recent decisions, I must instead look at
+        US history and see where patterns occur. I hope to compare both of these in a graphical
+        manner and look for relationships between the graphs.
+
+      </span>
+    </p>
+    <p>
+      <span
+        >Throughout this project in no way do I intend to deal with the topic of drugs and overdoses lightly.
+        I am not advocating for drug use nor am I ignoring drug side effects. Coming from a country where
+        drugs were decriminalized, I was intrigued when Oregon decided to do the same thing.
+        I wanted to see if there was a pattern between drug use and violence, to see if decriminalizing
+        drugs would possibly increase crime rates or decrease them. Of course, the goal of these
+        decriminalization is not to encourage use of illicit drugs, but they instead act as an
+        extension of the good samaritan laws. The goal of the laws is to allow users to enter recovery
+        without severe consequences, therefore enabling users to be helped.</span
+      >
+    </p>
+    <p>
+      <span
+        >This study was performed in RStudio and rates of usage and crime in this dataset were calculated
+      by dividing total numbers by population</span
+      >
+    </p>
+    <p>
+      <span
+        >The first step was importing the right libraries and the correct datasets. While neither of these datasets
+      are tidy, they are still usable and will serve our purposes. The first dataset represented drug use by state, age range, and year. </span
+      >
+    </p>
+    <p>
+      <span
+        >In order to better study our drugs dataset, I will add new columns which represent total
+        usage of substances across all age groups. These drugs will include: alcohol, cocaine, and marijuana. Tobacco cannot be included as there
+        are no yearly records, only monthly records.</span
+      >
+    </p>
+<p>
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 706px;
+          height: 284px;
+        "
+        ><img
+          alt=""
+          src="static/dVC1.png"
+          style="
+            width: 706px;
+            height: 284px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+    <p>
+      <span
+        >We can then explore this dataset with a facet_wrap function, comparing the usage of alcohol across all states:
+      </span>
+    </p>
+    <p>
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 710px;
+          height: 579px;
+        "
+        ><img
+          alt=""
+          src="static/dVC2.png"
+          style="
+            width: 710px;
+            height: 579px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+<h2>Correlations</h2>
+    <p>
+      <span
+        >First we'll see if there is any correlation between alcohol and marijuana use. We'll use the drugTotals dataset:</span
+      >
+    </p>
+<p>
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 710px;
+          height: 290px;
+        "
+        ><img
+          alt=""
+          src="static/dVC3.png"
+          style="
+            width: 710px;
+            height: 290px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+<p>
+      <span
+        >As we can see, the p-value is above 0.05 so this correlation is not valid. Even so, the
+          correlation is estimated to be ~-0.016, meaning there is a very weak negative correlation
+          between these two variables. However, we can continue to explore these variables by using
+          corrgram:</span
+      >
+    </p>
+<p>
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 705px;
+          height: 541px;
+        "
+        ><img
+          alt=""
+          src="static/dVC4.png"
+          style="
+            width: 705px;
+            height: 541px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+<p>
+      <span
+        >There does seem to be a strong positive correlation between totalAlcoholRate and totalCocaineRate. We can
+          see if it's significant:</span
+      >
+    </p>
+<p>
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 710px;
+          height: 284px;
+        "
+        ><img
+          alt=""
+          src="static/dVC5.png"
+          style="
+            width: 710px;
+            height: 284px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+<p>
+      <span
+        >This does seem to be a valid but weak relationship. We will now explore if there is a relationship between individual drug use
+      and crime rates, but first we must create a new dataframe which we will call totalCrime which represents total crime rate for
+      each state and each year:</span
+      >
+    </p>
+<p>
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 712px;
+          height: 442px;
+        "
+        ><img
+          alt=""
+          src="static/dVC6.png"
+          style="
+            width: 712px;
+            height: 442px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+<p>
+      <span
+        >Next we must merge totalCrime and drugTotals: </span
+      >
+    </p>
+<p>
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 705px;
+          height: 358px;
+        "
+        ><img
+          alt=""
+          src="static/dVC7.png"
+          style="
+            width: 705px;
+            height: 358px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+<p>
+      <span
+        >Now we can explore the relationship between drug use and total crime:</span
+      >
+    </p>
+
+<p>
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 708px;
+          height: 286px;
+        "
+        ><img
+          alt=""
+          src="static/dVC8.png"
+          style="
+            width: 708px;
+            height: 286px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+<p>
+      <span
+        >As we can see this correlation is not a coincidence, as the p-value is significantly below 0.05.
+          This is a weak, positive, linear correlation. Now we will run a corrgram on all variables from the merged
+          dataframe</span
+      >
+    </p>
+<p>
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+         width: 705px;
+          height: 473px;
+        "
+        ><img
+          alt=""
+          src="static/dVC9.png"
+          style="
+            width: 705px;
+          height: 473px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+<p>
+      <span
+        >We will also run a regression on total drug rates and total crime rates: </span
+      >
+    </p>
+<p>
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+         width: 709px;
+          height: 399px;
+        "
+        ><img
+          alt=""
+          src="static/dVC10.png"
+          style="
+            width: 709px;
+          height: 399px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+<p>
+      <span
+        >As we can see, this model is significant as well as the individual variables. The equation for this regression equation is:
+          predicted crime = 2.303e-02 + 0.005e+01 * totalDrugRate</span
+      >
+    </p>
+
+    <p>
+      <span
+        >This data was all very interesting to explore. While we'd have to dig deeper to truly understand the
+          relationship between drug use and crime rates, it seems that there is at least somewhat of a positive
+          correlation between drug use and crime rates. Whether this correlation is causation or not is up for debate,
+          but there is at least a link between these two variables.</span
+      >
+    </p>
+    <p class="c5"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5 c9"><span class="c4"></span></p>
+    <p class="c5"><span class="c4"></span></p>
+    <p class="c5"><span class="c4"></span></p>
+    <p class="c5"><span class="c4"></span></p>
+    <p class="c5"><span class="c4"></span></p>
+    <p class="c5"><span class="c4"></span></p>
+    <p class="c5"><span class="c4"></span></p>
+    <p class="c5"><span class="c4"></span></p>
+    <p class><span>Works Cited</span></p>
+    <p>
+      <span
+        >Assistant Secretary of Public Affairs (ASPA). &ldquo;What Is the U.S.
+        Opioid Epidemic?&rdquo; </span
+      ><span>HHS.gov</span
+      ><span
+        >, Https://Plus.google.com/ HHS,
+        www.hhs.gov/opioids/about-the-epidemic/index.html.</span
+      >
+    </p>
+    <p>
+      <span
+        >&ldquo;Drug Decriminalization in Oregon, One Year Later: Thousands of
+        Lives Not Ruined by Possession Arrests, $300 Million &nbsp;in Funding
+        for Services.&rdquo; </span
+      ><span>Drug Policy Alliance</span
+      ><span
+        >,
+        drugpolicy.org/press-release/2021/11/drug-decriminalization-oregon-one-year-later-thousands-lives-not-ruined.</span
+      >
+    </p>
+    <p>
+      <span>&ldquo;A History of the Drug War.&rdquo; </span
+      ><span>Drug Policy Alliance</span
+      ><span>, drugpolicy.org/issues/brief-history-drug-war.</span>
+    </p>
+    <p>
+      <span>&ldquo;Substance Use during the Pandemic.&rdquo; </span
+      ><span>Monitor on Psychology</span
+      ><span
+        >, American Psychological Association,
+        www.apa.org/monitor/2021/03/substance-use-pandemic.</span
+      >
+    </p>
+</html>

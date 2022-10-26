@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+      <script src="{{url_for('static', filename='script.js')}}"></script>
+
+      <title>Construction of a Six Flags Database</title>
+
+   </head>
+   <body>
+      <!-- Navbar here -->
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Sam's Website</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+    <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+       <li class="{{ 'active' if item.is_active else '' }}">
+        <a class="nav-link" href="index.html">Home </a>
+       </li>
+       <ul class="navbar-nav mr-auto">
+        <li class="{{ 'active' if item.is_active else '' }}">
+         <a class="nav-link" href="resume.html">Resume </a>
+         </li>
+         <ul class="navbar-nav mr-auto">
+          <li class="{{ 'active' if item.is_active else '' }}">
+           <a class="nav-link" href="contactNumbers.html">Contact </a>
+          </li>
+          <ul class="navbar-nav mr-auto">
+           <li class="{{ 'active' if item.is_active else '' }}">
+            <a class="nav-link" href="projects.html">Projects </a>
+           </li>
+      </ul>
+    </div>
+    </nav>
+
+      <!-- Future Content here -->
+
+
+
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+   <style>
+      body {
+      background-color: #212121;
+      color: white
+      }
+      <style type="text/css">
+            ol {
+              margin: 0;
+              padding: 0;
+            }
+            table td,
+            table th {
+              padding: 0;
+            }
+            .c4 {
+              background-color: #ffffff;
+              color: #505050;
+              font-weight: 400;
+              text-decoration: none;
+              vertical-align: baseline;
+               : 12pt;
+              font-family: "Arial";
+              font-style: normal;
+            }
+            .c0 {
+              color: #ffffff;
+              font-weight: 400;
+              text-decoration: none;
+              vertical-align: baseline;
+              font-size: 12pt;
+              font-family: "Times New Roman";
+              font-style: normal;
+            }
+            .c1 {
+              padding-top: 0pt;
+              text-indent: 36pt;
+              padding-bottom: 0pt;
+              line-height: 2;
+              orphans: 2;
+              widows: 2;
+              text-align: left;
+            }
+            .c6 {
+              margin-left: 30pt;
+              padding-top: 0pt;
+              text-indent: -30pt;
+              padding-bottom: 0pt;
+              line-height: 2;
+              text-align: left;
+            }
+            .c14 {
+              padding-top: 0pt;
+              padding-bottom: 0pt;
+              line-height: 1.15;
+              orphans: 2;
+              widows: 2;
+              text-align: center;
+            }
+            .c7 {
+              padding-top: 0pt;
+              padding-bottom: 0pt;
+              line-height: 2;
+              orphans: 2;
+              widows: 2;
+              text-align: left;
+            }
+            .c10 {
+              background-color: #ffffff;
+              font-size: 12pt;
+              font-style: normal;
+              color: #505050;
+              font-weight: 400;
+            }
+            .c5 {
+              padding-top: 0pt;
+              padding-bottom: 0pt;
+              line-height: 2;
+              text-align: left;
+              height: 11pt;
+            }
+            .c2 {
+              background-color: #ffffff;
+              font-size: 12pt;
+              font-style: italic;
+              color: #505050;
+              font-weight: 400;
+            }
+            .c8 {
+              background-color: #ffffff;
+              font-size: 12pt;
+              font-family: "Times New Roman";
+              font-weight: 400;
+            }
+            .c13 {
+              padding-top: 0pt;
+              padding-bottom: 0pt;
+              line-height: 2;
+              text-align: left;
+            }
+            .c15 {
+              font-size: 12pt;
+              font-family: "Times New Roman";
+              font-weight: 400;
+            }
+            .c3 {
+              background-color: #ffffff;
+              max-width: 468pt;
+              padding: 72pt 72pt 72pt 72pt;
+            }
+            .c9 {
+              margin-left: 144pt;
+              text-indent: 36pt;
+            }
+            .c11 {
+              background-color: #ffffff;
+            }
+            .c12 {
+              height: 11pt;
+            }
+            .title {
+              padding-top: 0pt;
+              color: #ffffff;
+              font-size: 26pt;
+              padding-bottom: 3pt;
+              font-family: "Arial";
+              line-height: 1.15;
+              page-break-after: avoid;
+              orphans: 2;
+              widows: 2;
+              text-align: left;
+            }
+            .subtitle {
+              padding-top: 0pt;
+              color: #666666;
+              font-size: 15pt;
+              padding-bottom: 16pt;
+              font-family: "Arial";
+              line-height: 1.15;
+              page-break-after: avoid;
+              orphans: 2;
+              widows: 2;
+              text-align: left;
+            }
+            li {
+              color: #ffffff;
+              font-size: 11pt;
+              font-family: "Arial";
+            }
+            p {
+              margin-right: 250px;
+              margin-left: 250px;
+              color: #ffffff;
+              font-size: 11pt;
+              text-align: center;
+            }
+            h1 {
+              padding-top: 20pt;
+              color: #ffffff;
+              font-size: 20pt;
+              padding-bottom: 6pt;
+              line-height: 1.15;
+              page-break-after: avoid;
+              orphans: 2;
+              widows: 2;
+              text-align: center;
+            }
+            h2 {
+              padding-top: 18pt;
+              color: #ffffff;
+              font-size: 16pt;
+              padding-bottom: 6pt;
+              font-family: "Arial";
+              line-height: 1.15;
+              page-break-after: avoid;
+              orphans: 2;
+              widows: 2;
+              text-align: left;
+            }
+            h3 {
+              padding-top: 16pt;
+              color: #434343;
+              font-size: 14pt;
+              padding-bottom: 4pt;
+              font-family: "Arial";
+              line-height: 1.15;
+              page-break-after: avoid;
+              orphans: 2;
+              widows: 2;
+              text-align: left;
+            }
+            h4 {
+              padding-top: 14pt;
+              color: #ffffff;
+              font-size: 12pt;
+              padding-bottom: 4pt;
+              font-family: "Arial";
+              line-height: 1.15;
+              page-break-after: avoid;
+              orphans: 2;
+              widows: 2;
+              text-align: left;
+            }
+            h5 {
+              padding-top: 12pt;
+              color: #ffffff;
+              font-size: 11pt;
+              padding-bottom: 4pt;
+              font-family: "Arial";
+              line-height: 1.15;
+              page-break-after: avoid;
+              orphans: 2;
+              widows: 2;
+              text-align: left;
+            }
+            h6 {
+              padding-top: 12pt;
+              color: #ffffff;
+              font-size: 11pt;
+              padding-bottom: 4pt;
+              font-family: "Arial";
+              line-height: 1.15;
+              page-break-after: avoid;
+              font-style: italic;
+              orphans: 2;
+              widows: 2;
+              text-align: left;
+            }
+          </style>
+
+<body>
+
+
+    <h1>Six Flags Database</h1>
+
+    <div>
+      <p></p>
+    </div>
+    <p><span></span></p>
+    <p>
+      <span>I’ve always been quite interested in theme parks and rollercoasters. Ever since I was a kid
+        I’ve been playing the Rollercoaster Tycoon games, a series of games focused on theme park management.
+        I decided to take on the challenge of managing a chain of theme parks from a database perspective. I
+        decided to create a database for the Six Flags chain of amusement parks.
+        While there are four other major park chains in the United States (Cedar Fair, Disney, Universal,
+        and SeaWorld), Six Flags is the chain I have the most experience with.
+      </span>
+    </p>
+<h1>Data and Functional Requirements</h1>
+    <p>
+      <span
+        >Amusement parks are an ever-changing industry. Various attractions are torn down at a moments
+        notice, customers and employees come and go, and parks that are part of a chain are added and
+        removed constantly. Because of this, most of the data in this database must be available to be
+        continuously updated, inserted, and deleted. The exceptions to this rule are the customers table,
+        where data is only inserted once and never deleted, and the maintained table as data is also only inserted once and never deleted.
+
+</span
+      >
+    </p>
+    <p>
+      <span
+        >The most central entity set in this database is the ‘locations’ entity set. This set has an
+        attribute which assigns each location a unique identifier (loc_ID), the name of the location (loc_name),
+        the state the location is in (loc_state), the city the location is in (loc_city), how important the
+        park is in the chain (loc_importance), and the amount of visitors per year that the park gets (visitors_per_year).
+        The purpose of the ‘loc_importance’ attribute is to distinguish between how the corporation, Six Flags,
+        views each one of their 13 amusement parks in the US. Six Flags does not in any way invest equally into each of
+        their parks: there are very clear winners and losers. A park with an importance rating that is a low number
+        indicates that the chain is willing to invest significantly more money into the park than a park with a
+        high importance rating number.
+      </span>
+    </p>
+    <p>
+      <span
+        >The ‘customers’ entity set lists information about each customer that attends a park, both customers
+        with memberships and single-day customers. As for the attributes, ‘cust_ID’ is the unique identifier
+        for each customer, ‘cust_name’ is the customers name, ‘membership_status’ details whether the customer
+        had a single-day pass or some type of membership, ‘cust_phone’ is the customer’s phone number, and ‘cust_email’
+        is the customer’s email address. These are all pieces of information one has to give Six Flags in order to
+        visit one of their parks, so I thought it relevant to include these attributes. The ‘customers’ table includes
+        the foreign key ‘loc_ID’ as customers are specific to each park. The ‘customers’ entity set is connected to
+        the ‘locations’ entity set through the ‘visits’ relationship set, through a one-to-many relationship. Each
+        customer can visit many Six Flags parks, but each park can only have one of each customer.
+</span
+      >
+    </p>
+    <p>
+      <span
+        >Certain customers may own a season pass or a membership, and for that reason the ‘memberships’ entity set
+        exists. The attributes of the ‘memberships’ entity set are: ‘yearly_rate’ (the amount that has to be paid
+        yearly by the members), ‘member_address’ (the address of the member), ‘member_status’ (the specific name
+        of the membership the member pays for), and ‘yearly_visits’ (the amount of times the member has visited
+        the park within the past season). The ‘memberships’ table has two foreign key constraints: ‘loc_ID’ as
+        each member initializes their membership at a specific park, and ‘cust_ID’ as each member is also a
+        customer. This is a weak entity set as there are no unique primary keys, however a partial key is the
+        ‘member_status’ in conjunction with the foreign key ‘cust_ID’. This ‘memberships’ entity set is connected
+        to the ‘customers’ entity set through a relationship set called ‘owns’. This is a one-to-one relationship.
+        Each customer can have one membership, and each membership belongs to one customer. There are no family
+        memberships at Six Flags.
+</span
+      >
+    </p>
+    <p>
+      <span
+        >The ‘employees’ entity set contains attributes relating to the employees of Six Flags.
+        ‘employee_ID’ is a unique identifier for each employee, ‘employee_role’ describes the role
+        that the employee plays within the organization, ‘ssn’ is the employee’s social security number,
+        ‘first_name’ is the first name of the employee, ‘last_name’ is the last name of the employee,
+        ‘address’ is the address of the employee, ‘email’ is the email of the employee, ‘start_date’
+        is the date which the employee started working for the organization, and ‘salary’ is how much
+        the employee is paid per year. The ‘employees’ table also has the foreign key constraint ‘loc_ID’
+        as each employee works for one location. Employees have managers, thus there is a relationship set
+        called ‘manages’. This relationship between the ‘employees’ and ‘manages’ is a one-to-many relationship
+        set: each employee has one manager, each manager can manage multiple employees. In the ‘manages’ table,
+        there are two attributes: employee_ID_manager (the id of the manager) and employee_ID_employee (the
+        id of the managed employee).
+</span
+      >
+    </p>
+  <p>
+      <span
+        >Theme parks tend to have many events, such as concerts and live shows. These events are represented by the
+        ‘events’ entity set, which is related to the ‘locations’ entity set through the ‘shown at’
+        relationship set. This is a one-to-one relationship: each specific event is shown at one location,
+        and parks only have one of each event. The ‘events’ entity set has the attributes: ‘event_ID’ which
+        is a unique identifier for the event, ‘date’ which represents when the event is scheduled, ‘time’
+        which represents what time the event is scheduled, and ‘event_name’ which is the name of the event.
+        The ‘events’ table also has a ‘loc_ID’ foreign key constraint as every event is specific to a location.
+
+</span
+      >
+    </p>
+
+
+ <p>
+      <span
+        >Arguably the most important aspect of the Six Flags chain is the rides, which are
+        represented by the ‘rides’ entity set. This entity set contains the attributes ‘ride_ID’, a unique
+        identifier for each ride, ‘ride_name’, the name of each ride, ‘ride_type’, the type of each ride
+        (e.g. a ride could be a rollercoaster, dark ride, family ride, etc.), ‘maintenance_cost’, the most
+        recent cost of maintaining the ride, ‘install_year’, the year in which the ride was installed, ‘install_cost’,
+        the cost of installing the ride, ‘riders_per_year’, the amount of riders that were recorded in the previous
+        year, ‘manufacturer’, who the ride was manufactured by, ‘common problems’, reasons why the ride may need to
+        be repaired or areas that should be looked into more, and ‘number_of_seasons’, the amount of seasons that the ride
+        has been around for (i.e. the difference between the current year and the year of installation). The ‘rides’
+        table has a foreign key constraint, ‘loc_ID’, as every ride is specific to a specific location.
+
+
+</span
+      >
+    </p>
+
+ <p>
+      <span
+        >The final two entity sets have to do with the shops within each park. The ‘storefronts’
+        entity set records data about the storefronts at the parks: ‘store_ID’ which is a unique identifier for each
+        storefront, ‘store_name’ which is the name for each store, ‘volume_sold’ which is how much volume was sold
+        within the last year, ‘daily_revenue’ which is the average amount of revenue the storefront receives per day,
+        ‘monthly_revenue’ which is the average amount of revenue the storefront receives per month, and ‘yearly_revenue’
+        which is the average amount of revenue the storefront receives per year. While one could make the case that an
+        improved design for this table would be to have both the ‘loc_ID’ and ‘store_ID’ as the primary keys, most stores
+        tend to have unique store IDs, not related to their location. The storefront of course has merchandise,
+        which is a different entity set, linked to the ‘storefront’ entity set through the ‘sells’ relationship set.
+        This is a one-to-many relationship: the same merchandise can be sold at many stores, but each store carries
+        one of the same merchandise.
+</span
+      >
+    </p>
+
+<p>
+      <span
+        >The ‘merchandise’ entity set contains the following attributes: ‘merch_ID’, a unique identifier for each piece
+        of merchandise, ‘merch_name’, the name of the merchandise, ‘merch_type’, the type of the merchandise
+        (i.e. a toy, a balloon, food, etc.), ‘price’, the price that the merchandise is being sold for,
+        ‘quantity_in_stock’, the amount of said merchandise that is in stock at the particular store, and
+        ‘volume_sold’, the amount of said merchandise sold in the store within the past year. This ‘merchandise’
+        table has one foreign key constraint: ‘store_ID’, which is a primary key in conjunction with ‘merch_ID’.
+
+</span
+      >
+    </p>
+<h1>ER Diagram:</h1>
+    <p>
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 771.83px;
+          height: 541.3px;
+        "
+        ><img
+          alt=""
+          src="static/ER.png"
+          style="
+            width: 771.83px;
+            height: 541.3px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+<h1>Relational Database Schema Diagram:</h1>
+    <p>
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 831.3px;
+          height: 488.83px;
+        "
+        ><img
+          alt=""
+          src="static/RDSD.png"
+          style="
+            width: 831.3px;
+            height: 488.83px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title="" /></span
+      >
+    </p>
+    <p>
+        <span>
+            <a href="https://docs.google.com/spreadsheets/d/1fgomcl5WoC43crUeZhEVQjEOn3tU2qGrZlFx0NGwbf8/edit?usp=sharing">Click this link to view the data that was inserted into the database</a>
+        </span>
+    </p>
+
+    <p>
+      <span
+        >I then created this database using a long series of insert statements, and then was able to create a few functions.
+          The first one calculated the total ridership for a specific park:
+      </span>
+    </p>
+    <p>
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 492px;
+          height: 219.3px;
+        "
+        ><img
+          alt=""
+          src="static/SF1.png"
+          style="
+            width: 492px;
+            height: 219.3px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+    <p>
+      <span
+        >The second function finds the data of members at a specific park: </span
+      >
+    </p>
+    <p>
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 708.67px;
+          height: 327.3px;
+        "
+        ><img
+          alt=""
+          src="static/SF2.png"
+          style="
+            width: 708.67px;
+            height: 327.3px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+    <p>
+      <span
+        >I created a trigger which updates the rides table's maintenance cost with the last recorded cost of maintenance on the maintenance table:</span
+      >
+    </p>
+    <p>
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 666px;
+          height: 624px;
+        "
+        ><img
+          alt=""
+          src="static/SF3.png"
+          style="
+            width: 666px;
+            height: 624px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+    <p>
+      <span
+        >I also created multiple queries, each with an applicable business purpose described in a comment underneath:</span
+      >
+    </p>
+    <p>
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 995px;
+          height: 657px;
+        "
+        ><img
+          alt=""
+          src="static/SF4.png"
+          style="
+            width: 995px;
+            height: 657px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title="" /></span
+      ><span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 1024px;
+          height: 746px;
+        "
+        ><img
+          alt=""
+          src="static/SF5.png"
+          style="
+            width: 1024px;
+            height: 746px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+    <p>
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 3px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 891px;
+          height: 419px;
+        "
+        ><img
+          alt=""
+          src="static/SF6.png"
+          style="
+            width: 891px;
+            height: 419px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+    <p>
+      <span>I was also able to integrate this database into flask via SQLite3, and I was aable to query this database through my flask website.</span>
+    </p>
